@@ -8,13 +8,13 @@ import { Builder } from '@builder.io/react'
 import dynamic from 'next/dynamic'
 
 // put your Public API Key you copied from Builder.io here
-const BUILDER_API_KEY = '40e995d07db4497ea08a676ef278d645'
+const BUILDER_API_KEY = '81994bd6a6634c5e899ff6a840c845a1'
 builder.init(BUILDER_API_KEY)
 
 export async function getStaticProps({
   params,
 }: GetStaticPropsContext<{ page: string[] }>) {
-  const page = await builder.get('page', {
+  const page = await builder.get('vercel', {
     userAttributes: {
       urlPath: '/' + (params?.page?.join('/') || ''),
     }
@@ -30,7 +30,7 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
-  const pages = await builder.getAll('page', {
+  const pages = await builder.getAll('vercel', {
     options: { noTargeting: true }
   })
 
@@ -67,7 +67,7 @@ export default function Page({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       
-      <BuilderComponent model="page" content={page} />
+      <BuilderComponent model="vercel" content={page} />
        
     </>
 
