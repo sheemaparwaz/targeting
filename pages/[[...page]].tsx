@@ -8,7 +8,7 @@ import { Builder } from '@builder.io/react'
 import dynamic from 'next/dynamic'
 
 // put your Public API Key you copied from Builder.io here
-const BUILDER_API_KEY = 'b1510c2bd222424da688201056da6501'
+const BUILDER_API_KEY = '81994bd6a6634c5e899ff6a840c845a1'
 builder.init(BUILDER_API_KEY)
 
 export async function getStaticProps({
